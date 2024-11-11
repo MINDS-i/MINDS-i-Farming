@@ -1,5 +1,4 @@
-#include <MINDSi.h>
-#include <MINDS-i-Utils.h>
+#include <MINDS-i-Common.h>
 
 /***************************************************
 / Example provided by MINDS-i
@@ -27,7 +26,10 @@
 
 #define MAX_SERVO_DEGREES_PER_SECOND 500
 
-RateControlledServo servo1, servo2;
+namespace minds_i_control = minds_i_common::control;
+namespace minds_i_comms = minds_i_common::comms;
+
+minds_i_control::RateControlledServo servo1, servo2;
 
 unsigned long ticks;
 
@@ -38,7 +40,7 @@ void setup() {
 }
 
 void loop() {
-  if (getRadio(7) > 90)
+  if (minds_i_comms::getRadio(7) > 90)
   {
     trailerOn();
   } 
