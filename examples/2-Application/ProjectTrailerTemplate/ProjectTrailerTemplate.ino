@@ -22,27 +22,27 @@ namespace minds_i_comms = minds_i_common::comms;
 Servo servo1, servo2;
 
 void setup() {
-  servo1.attach(2);
-  servo2.attach(3);
+    servo1.attach(2);
+    servo2.attach(3);
 
-  servo1.write(90);
-  servo2.write(90);
+    servo1.write(90);
+    servo2.write(90);
 }
 
 void loop() {
-  if (minds_i_comms::getRadio(7) > 90) {
-    trailerOn();
-  } else {
-    trailerOff();
-  }
+    if (minds_i_comms::getRadio(7) > 90) {
+        trailerOn();
+    } else {
+        trailerOff();
+    }
 }
 
 void trailerOff() {
-  servo1.write(45);
-  servo2.write(135);
+    servo1.write(45);
+    servo2.write(135);
 }
 
 void trailerOn() {
-  servo1.write(135);
-  servo2.write(45);
+    servo1.write(135);
+    servo2.write(45);
 }

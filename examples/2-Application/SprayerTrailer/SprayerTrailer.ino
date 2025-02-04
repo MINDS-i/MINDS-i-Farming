@@ -18,11 +18,11 @@
 
 #define SERVO1_PIN 2
 #define SERVO1_OFF 135
-#define SERVO1_ON  45
+#define SERVO1_ON 45
 
 #define SERVO2_PIN 3
 #define SERVO2_OFF 45
-#define SERVO2_ON  135
+#define SERVO2_ON 135
 
 #define MAX_SERVO_DEGREES_PER_SECOND 500
 
@@ -34,28 +34,25 @@ minds_i_control::RateControlledServo servo1, servo2;
 unsigned long ticks;
 
 void setup() {
-  ticks = 0;
-  servo1.attachInitAngle(SERVO1_PIN, SERVO1_OFF);
-  servo2.attachInitAngle(SERVO2_PIN, SERVO2_OFF);
+    ticks = 0;
+    servo1.attachInitAngle(SERVO1_PIN, SERVO1_OFF);
+    servo2.attachInitAngle(SERVO2_PIN, SERVO2_OFF);
 }
 
 void loop() {
-  if (minds_i_comms::getRadio(7) > 90)
-  {
-    trailerOn();
-  } 
-  else
-  {
-    trailerOff();
-  }
+    if (minds_i_comms::getRadio(7) > 90) {
+        trailerOn();
+    } else {
+        trailerOff();
+    }
 }
 
 void trailerOff() {
-  servo1.writeRateControlled(SERVO1_OFF, MAX_SERVO_DEGREES_PER_SECOND);
-  servo2.writeRateControlled(SERVO2_OFF, MAX_SERVO_DEGREES_PER_SECOND);
+    servo1.writeRateControlled(SERVO1_OFF, MAX_SERVO_DEGREES_PER_SECOND);
+    servo2.writeRateControlled(SERVO2_OFF, MAX_SERVO_DEGREES_PER_SECOND);
 }
 
 void trailerOn() {
-  servo1.writeRateControlled(SERVO1_ON, MAX_SERVO_DEGREES_PER_SECOND);
-  servo2.writeRateControlled(SERVO2_ON, MAX_SERVO_DEGREES_PER_SECOND);
+    servo1.writeRateControlled(SERVO1_ON, MAX_SERVO_DEGREES_PER_SECOND);
+    servo2.writeRateControlled(SERVO2_ON, MAX_SERVO_DEGREES_PER_SECOND);
 }
