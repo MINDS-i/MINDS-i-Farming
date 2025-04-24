@@ -19,7 +19,7 @@ void setup() {
     rightBase.attach(3);
 
     // Sets the starting position for the servos and ESC
-    leftBase.write(45); // 135 closed -  45 open
+    leftBase.write(45);   // 135 closed -  45 open
     rightBase.write(135); // 45 closed - 135 open
 }
 
